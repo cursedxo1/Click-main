@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+<meta charset="UTF-8">
+<title>Prank 😜</title>
+<style>
+  body{
+    background:#111;
+    color:white;
+    font-family:Arial;
+    text-align:center;
+    padding-top:80px;
+    transition:0.3s;
+  }
+  .shake{
+    animation:shake 0.3s infinite;
+  }
+  @keyframes shake{
+    0%{transform:translateX(0);}
+    25%{transform:translateX(-5px);}
+    50%{transform:translateX(5px);}
+    75%{transform:translateX(-5px);}
+    100%{transform:translateX(0);}
+  }
+  #popup{
+    position:fixed;
+    top:20px;
+    left:50%;
+    transform:translateX(-50%);
+    background:#ff4444;
+    padding:15px 25px;
+    border-radius:10px;
+    display:none;
+    font-weight:bold;
+    box-shadow:0 0 20px red;
+  }
+</style>
+</head>
+<body>
+
+<h1 id="title">😎 សូមរង់ចាំ...</h1>
+<p id="msg">Website កំពុងរត់...</p>
+<div id="popup">⚠️ Warning: Laptop ឯងកំពុងញញើត! 😜</div>
+
+<script>
+  const title = document.getElementById("title");
+  const msg = document.getElementById("msg");
+  const pop = document.getElementById("popup");
+
+  // បម្លែងអក្សរ
+  setInterval(() => {
+    const texts = ["🤣 HAHA", "😜 GOTCHA", "😎 Bruh", "🔥 Wow!", "😂 LOL"];
+    title.textContent = texts[Math.floor(Math.random()*texts.length)];
+  }, 1000);
+
+  // popup កំប្លែង
+  setInterval(() => {
+    pop.style.display = "block";
+    setTimeout(()=> pop.style.display = "none", 1500);
+  }, 4000);
+
+  // screen shake
+  setInterval(() => {
+    document.body.classList.add("shake");
+    setTimeout(()=> document.body.classList.remove("shake"), 500);
+  }, 3000);
+
+  // ពណ៌ផ្ទៃក្រោយប្ដូរ
+  setInterval(()=>{
+    const r = Math.floor(Math.random()*255);
+    const g = Math.floor(Math.random()*255);
+    const b = Math.floor(Math.random()*255);
+    document.body.style.background = `rgb(${r},${g},${b})`;
+  }, 1500);
+</script>
+
+</body>
+</html>
